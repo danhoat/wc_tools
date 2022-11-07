@@ -13,7 +13,7 @@
  * @package WooCommerce
  */
 
-require_once('wc_tools_admin.php');
+require('wc_tools_admin.php');
 
 
 function wctest_activated() {
