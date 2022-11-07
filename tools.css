@@ -1,0 +1,16 @@
+.wrap{
+	padding: 30px;
+}
+.btn-tool{
+	border-radius: 16px;
+    color: #fff;
+    border: 0;
+    background: #059f05f7;
+    padding: 10px 9px;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.top-bar{
+	padding: 0 30px ;
+}
