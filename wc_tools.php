@@ -25,8 +25,8 @@ function wctest_deactivated() {
 }
 
 
-register_activation_hook( __FILE__, 'wctest_activated' );
-register_deactivation_hook( __FILE__, 'wctest_deactivated' );
+register_activation_hook( __FILE__, 'wc_tools_activated' );
+register_deactivation_hook( __FILE__, 'wc_tools_deactivated' );
 
 
 
