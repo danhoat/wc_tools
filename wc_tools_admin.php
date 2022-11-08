@@ -31,8 +31,6 @@ Class WC_Tools_Admin{
     }
     function generate_vendor_data(){
 
-        
-
         $this->insert_sample_user();
         $this->import_sample_products();
         
@@ -83,8 +81,6 @@ Class WC_Tools_Admin{
 
     function insert_sample_products(){
 
-
-    
         $data = array(
             'post_title'   => "Simple product 1",
             'post_content' => "Simple product  content goes here…",
