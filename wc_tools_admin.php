@@ -12,10 +12,16 @@ Class WC_Tools_Admin{
 
     public function wcvendors_tools( $tools ) {
 
+        $imported = get_option('generate_sample_data', 0);
+        $btn_text = __( 'Generate WC Vendor Data', 'wc_tool' );
+        if($imported){
+            $btn_text = __( 'Generate Data Again', 'wc_tools' );
+        }
+
         $tools['generate_wcvendor_data'] = array(
-            'name'     => __( 'Generate WC Vendors Data', 'wc-vendors' ),
-            'button'   => __( 'Generate WC Vendor Data', 'wc-vendors' ),
-            'desc'     => __( 'This will generate WC Vendors Data .', 'wc-vendors' ),
+            'name'     => __( 'Generate WC Vendors Data', 'wc_tool' ),
+            'button'   => $btn_text,
+            'desc'     => __( 'This will generate WC Vendors Data .', 'wc_tool' ),
             'callback' => array( $this, 'generate_vendor_data' ),
         );
         return $tools;
