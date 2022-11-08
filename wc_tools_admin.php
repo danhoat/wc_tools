@@ -3,7 +3,7 @@
 Class WC_Tools_Admin{
 
     function __construct(){
-        
+
         add_action( 'admin_menu', array($this, 'add_tool_menu'), 100 );
         add_action( 'admin_enqueue_scripts', array($this,'add_tool_style') );
         add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ), 99 );
@@ -30,11 +30,17 @@ Class WC_Tools_Admin{
         add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'woocommerce' ), $menu_title, 'manage_woocommerce', 'wc-tools', array($this,'tools_page')  );
     }
     function generate_vendor_data(){
+
+        
+
         $this->insert_sample_user();
-        $this->insert_sample_product();
+        $this->import_sample_products();
+        
         update_option('generate_sample_data', 1);
     }
     function insert_sample_user(){
+
+
 
         $userdata = array(
             'user_email'            => 'vendor@gmail.com',   
@@ -63,8 +69,16 @@ Class WC_Tools_Admin{
   
         
     }
-    function insert_sample_product(){
+    function import_sample_products(){
+        $file = WC_TOOL_PATH.'/sample_data/sample_products.xml.txt';
+        $obj_import = new WP_Import();
+        $obj_import->import($file);
+        
+    }
+    function insert_sample_products(){
 
+
+    
         $data = array(
             'post_title'   => "Simple product 1",
             'post_content' => "Simple product  content goes here…",
