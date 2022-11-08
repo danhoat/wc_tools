@@ -135,7 +135,7 @@ Class WC_Tools_Admin{
     
 
     function add_tool_menu() {
-
+        
         $menu_title = 'Tools';
         add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'woocommerce' ), $menu_title, 'manage_woocommerce', 'wc-tools', array($this,'tools_page')  );
     }

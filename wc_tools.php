@@ -53,11 +53,11 @@ function wc_tool_init(){
 
 add_action('after_setup_theme','wc_tool_init');
 
-function wctest_activated() {
+function wc_tools_activated() {
 
 }
 
-function wctest_deactivated() {
+function wc_tools_deactivated() {
 	update_option('generate_sample_data',0);
 }
 
