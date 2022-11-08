@@ -25,11 +25,7 @@ Class WC_Tools_Admin{
         wp_enqueue_style( 'wc-tools-style', plugins_url('tools.css', __FILE__) );
     }
 
-    function add_tool_menu() {
-
-        $menu_title = 'Tools';
-        add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'woocommerce' ), $menu_title, 'manage_woocommerce', 'wc-tools', array($this,'tools_page')  );
-    }
+    
     function generate_vendor_data(){
 
         $this->insert_sample_user();
@@ -138,8 +134,13 @@ Class WC_Tools_Admin{
     }
     
 
-    function tools_page() { 
+    function add_tool_menu() {
 
+        $menu_title = 'Tools';
+        add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'woocommerce' ), $menu_title, 'manage_woocommerce', 'wc-tools', array($this,'tools_page')  );
+    }
+
+    function tools_page() { 
 
         $inserted = get_option('generate_sample_data', 0);
 
@@ -150,13 +151,8 @@ Class WC_Tools_Admin{
         <div class="top-bar">
            <h1> <?php _e('Tools','wc_tool');?></h1>
         </div>
-
-        <div class="wp-header-end"></div>
-
         <div class="wrap">
-           
             <div class="marketplace-content-wrapper">
-               
                 <?php if( !$inserted){?>
                 <form method="POST">
                    <input type="hidden" name="genera_sample" value="1">
