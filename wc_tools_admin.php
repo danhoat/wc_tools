@@ -64,9 +64,7 @@ Class WC_Tools_Admin{
         );  
         // Create User with pending_vendor role.
         $user_id = wp_insert_user($userdata);
-
-  
-        
+ 
     }
     /**
      * import products from .xml file

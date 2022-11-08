@@ -14,8 +14,8 @@
  */
 
 define('WC_TOOL_PATH',dirname( __FILE__ ));
-require('functions.php');
 
+require('functions.php');
 
 
 /** WXR_Parser class */
@@ -50,8 +50,9 @@ function wc_tool_init(){
     require('wc_tools_admin.php');
 }
 
-
 add_action('after_setup_theme','wc_tool_init');
+
+
 
 function wc_tools_activated() {
 
