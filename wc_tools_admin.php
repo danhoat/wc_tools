@@ -4,7 +4,7 @@ Class WC_Tools_Admin{
 
     function __construct(){
 
-        add_action( 'admin_menu', array($this, 'add_tool_menu'), 100 );
+        // add_action( 'admin_menu', array($this, 'add_tool_menu'), 100 );
         add_action( 'admin_enqueue_scripts', array($this,'add_tool_style') );
         add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ), 99 );
    
@@ -20,7 +20,8 @@ Class WC_Tools_Admin{
         );
         return $tools;
     }
-     function add_tool_style() {
+    
+    function add_tool_style() {
         wp_enqueue_style( 'wc-tools-style', plugins_url('tools.css', __FILE__) );
     }
 
@@ -37,8 +38,6 @@ Class WC_Tools_Admin{
         update_option('generate_sample_data', 1);
     }
     function insert_sample_user(){
-
-
 
         $userdata = array(
             'user_email'            => 'vendor@gmail.com',   
