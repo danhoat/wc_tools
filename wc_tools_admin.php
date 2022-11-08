@@ -69,12 +69,18 @@ Class WC_Tools_Admin{
   
         
     }
+    /**
+     * import products from .xml file
+     * 
+     **/
     function import_sample_products(){
+
         $file = WC_TOOL_PATH.'/sample_data/sample_products.xml.txt';
         $obj_import = new WP_Import();
         $obj_import->import($file);
-        
+
     }
+
     function insert_sample_products(){
 
 

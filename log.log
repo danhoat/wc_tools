@@ -1,2 +1,4 @@
 pending_vendor
 vendor
+
+public function do_ajax_product_import() {
