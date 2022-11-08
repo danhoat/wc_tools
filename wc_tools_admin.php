@@ -21,7 +21,7 @@ Class WC_Tools_Admin{
         $tools['generate_wcvendor_data'] = array(
             'name'     => __( 'Generate WC Vendors Data', 'wc_tool' ),
             'button'   => $btn_text,
-            'desc'     => __( 'This will generate WC Vendors Data .', 'wc_tool' ),
+            'desc'     => __( 'This will generate WC Vendors Data.', 'wc_tool' ),
             'callback' => array( $this, 'generate_vendor_data' ),
         );
         return $tools;
