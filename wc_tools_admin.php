@@ -6,9 +6,20 @@ Class WC_Tools_Admin{
         
         add_action( 'admin_menu', array($this, 'add_tool_menu'), 100 );
         add_action( 'admin_enqueue_scripts', array($this,'add_tool_style') );
+        add_filter( 'woocommerce_debug_tools', array( $this, 'wcvendors_tools' ), 99 );
    
     }
 
+    public function wcvendors_tools( $tools ) {
+
+        $tools['generate_wcvendor_data'] = array(
+            'name'     => __( 'Generate WC Vendors Data', 'wc-vendors' ),
+            'button'   => __( 'Generate WC Vendor Data', 'wc-vendors' ),
+            'desc'     => __( 'This will generate WC Vendors Data .', 'wc-vendors' ),
+            'callback' => array( $this, 'generate_vendor_data' ),
+        );
+        return $tools;
+    }
      function add_tool_style() {
         wp_enqueue_style( 'wc-tools-style', plugins_url('tools.css', __FILE__) );
     }
@@ -18,7 +29,12 @@ Class WC_Tools_Admin{
         $menu_title = 'Tools';
         add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'woocommerce' ), $menu_title, 'manage_woocommerce', 'wc-tools', array($this,'tools_page')  );
     }
-    function genera_sample_data(){
+    function generate_vendor_data(){
+        $this->insert_sample_user();
+        $this->insert_sample_product();
+        update_option('generate_sample_data', 1);
+    }
+    function insert_sample_user(){
 
         $userdata = array(
             'user_email'            => 'vendor@gmail.com',   
@@ -44,10 +60,10 @@ Class WC_Tools_Admin{
         // Create User with pending_vendor role.
         $user_id = wp_insert_user($userdata);
 
-        $this->insert_product();
-        update_option('generate_sample_data', 1);
+  
+        
     }
-    function insert_product(){
+    function insert_sample_product(){
 
         $data = array(
             'post_title'   => "Simple product 1",
